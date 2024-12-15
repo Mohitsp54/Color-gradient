@@ -14,4 +14,8 @@ The __Colour Gradient Picker__ is a simple and interactive web application built
 > * CSS: Styles the interface, ensuring a visually appealing and user-friendly layout.
 > * JavaScript: Handles user interactions, updates the gradient in real-time, and generates the CSS code for the user.
 
+### Potential Use Cases:
+> * Web Design: Quickly prototype and apply gradient backgrounds to web projects.
+> * Graphic Design: Experiment with color combinations for use in digital artworks.
+> * Learning Tool: A beginner-friendly project for developers to learn about gradients and how CSS works with JavaScript.
 
