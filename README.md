@@ -6,5 +6,12 @@ The __Colour Gradient Picker__ is a simple and interactive web application built
 ### Features:
 > * A live display of the gradient background updates dynamically as users adjust the settings.
 > * Multiple color input fields allow users to pick and blend multiple colors for the gradient.
+> * Users can control the gradient direction.
+> * Fine-tune the positioning of radial gradients (e.g., center, top-left, etc.).
+
+### Technologies Used:
+> * HTML: Structures the application, including inputs, buttons, and the gradient preview area.
+> * CSS: Styles the interface, ensuring a visually appealing and user-friendly layout.
+> * JavaScript: Handles user interactions, updates the gradient in real-time, and generates the CSS code for the user.
 
 
