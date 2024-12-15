@@ -7,15 +7,17 @@
     <style>
         body{
             display: flex;
+            flex-direction: column;
             width: auto;
             height: 100vh;
             margin:0;
-            padding: 0;
+            padding:0;
             background-image:linear-gradient(to right, #004773, #54d542);
             justify-content: center;
             align-items: center;
             text-align: center;
         }
+
         #myButton{
             background-color: aqua;
             height: 2rem;
@@ -33,6 +35,23 @@
             border:none;
             border-radius: 15px;
             box-shadow: 3px 2px 10px black;
+        }
+
+        #page2{
+            position: absolute;
+            bottom: 20px;
+            right: 15px;
+            background-color: aqua;
+            height: 2rem;
+            width: 7rem;
+            border:none;
+            border-radius: 15px;
+            box-shadow: 3px 2px 10px  black;
+            align-self: flex-end;
+        }
+        a{
+            color: black;
+            text-decoration: none;
         }
 
         .copyCode{
@@ -99,5 +118,6 @@
             alert("Text Copied");
         });
     </script>
+    <button id="page2"><a href="/page2.html">For 3 Colours</a></button>
 </body>
 </html>
