@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .copyCode {
+            height:auto;
+            width: auto;
+            padding: 1em;
+            font-size: 1.1rem;
+            background-color: rgba(253,252,255,0.3);
+            border-left: 4px solid white;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="myButton">Color 1</button>
+    <button id="myButton2">Color 2</button>
+    <button id="myButton3">Color 3</button> <!-- New button for the third color -->
+    <button id="direction">Change Direction</button>
+    <div class="copyCode">Click to copy CSS code</div>
+    <script>
+        let btn1 = document.getElementById("myButton");
+let btn2 = document.getElementById("myButton2");
+let btn3 = document.getElementById("direction"); // Direction button
+let btn4 = document.getElementById("myButton3"); // Button for the third color
+let copyDiv = document.querySelector(".copyCode");
+
+let rgb1 = "#004773";
+let rgb2 = "#54d542";
+let rgb3 = "#ff5733"; // Default third color
+
+// Predefined gradient directions
+const directions = ["to right", "to left", "to top", "to bottom"];
+let currentDirectionIndex = 0;
+
+// Function to generate random hex values
+const hexValues = () => {
+    let hexaValues = "0123456789abcdef";
+    let colors = "#";
+    for (let i = 0; i < 6; i++) {
+        colors = colors + hexaValues[Math.floor(Math.random() * 16)];
+    }
+    return colors;
+};
+
+// Function to handle the first button (change color 1)
+const handleButton1 = () => {
+    rgb1 = hexValues();
+    console.log(rgb1);
+    updateGradient();
+    btn1.innerHTML = rgb1;
+    btn1.style.backgroundColor = rgb1;
+};
+
+// Function to handle the second button (change color 2)
+const handleButton2 = () => {
+    rgb2 = hexValues();
+    console.log(rgb2);
+    updateGradient();
+    btn2.innerHTML = rgb2;
+    btn2.style.backgroundColor = rgb2;
+};
+
+// Function to handle the third button (change color 3)
+const handleButton3 = () => {
+    rgb3 = hexValues();
+    console.log(rgb3);
+    updateGradient();
+    btn4.innerHTML = rgb3;
+    btn4.style.backgroundColor = rgb3;
+};
+
+// Function to change gradient direction
+const handleDirectionButton = () => {
+    currentDirectionIndex = (currentDirectionIndex + 1) % directions.length; // Cycle through directions
+    updateGradient();
+    btn3.innerHTML = directions[currentDirectionIndex]; // Update button text with the current direction
+};
+
+// Function to update the gradient and display the CSS code
+const updateGradient = () => {
+    let currentDirection = directions[currentDirectionIndex];
+    document.body.style.backgroundImage = `linear-gradient(${currentDirection}, ${rgb1}, ${rgb2}, ${rgb3})`;
+    copyDiv.innerHTML = `background-image: linear-gradient(${currentDirection}, ${rgb1}, ${rgb2}, ${rgb3})`;
+};
+
+// Event listeners
+btn1.addEventListener("click", handleButton1);
+btn2.addEventListener("click", handleButton2);
+btn4.addEventListener("click", handleButton3); // Event listener for the third button
+btn3.addEventListener("click", handleDirectionButton);
+
+copyDiv.addEventListener("click", () => {
+    navigator.clipboard.writeText(copyDiv.innerText);
+    alert("Text Copied");
+});
+
+// Initial setup
+updateGradient();
+
+    </script>
+</body>
+</html>
+
